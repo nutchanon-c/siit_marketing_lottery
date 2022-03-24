@@ -13,15 +13,6 @@ from pymysql import OperationalError
 from pymysql import ProgrammingError
 from setuptools import Command
 
-# from tkinter import font
-# import tkinter
-# root = tkinter.Tk()
-# fonts = list(font.families())
-# fonts.sort()
-# root.destroy()
-
-
-
 dir_path = os.path.dirname(os.path.realpath(__file__))
 currentDir = dir_path.replace('\\', '/')
 
@@ -144,9 +135,4 @@ def main():
             
 
 if __name__ == '__main__':
-    # fonts = sg.Text.fonts_installed_list()
-    # dump fonts to file called fonts.txt
-    # with open('fonts.txt', 'w') as f:
-    #     json.dump(fonts, f)
-
     main()
