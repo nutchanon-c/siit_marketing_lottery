@@ -36,8 +36,8 @@ def complementaryColor(my_hex):
 
 def main():
     with open(currentDir + '/' + 'result_log.txt', 'a') as f:
-        f.write('----------Results for ' + str(datetime.datetime.now()) + '----------\n')
-        f.write(f'----------Number of Digits: {numDigit}----------\n')
+        f.write('>Results for ' + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + '\n')
+        f.write(f'>Number of Digits: {numDigit}\n')
         f.close()
 
 
