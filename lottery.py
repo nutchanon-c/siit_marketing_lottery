@@ -1,5 +1,6 @@
 
 from cgitb import text
+import datetime
 import re
 import gspread
 import json
@@ -38,6 +39,9 @@ with open(currentDir + "/config.json", 'r', encoding="utf8") as f:
 
 
 def main():
+    with open(currentDir + '/' + 'result_log.txt', 'a') as f:
+        f.write('----------Results for ' + str(datetime.datetime.now()) + '----------\n')
+        f.close()
 
 
     colors = {
@@ -94,6 +98,7 @@ def main():
     cnt = 0
     a = 0
     t = 50
+    num = 0
     while True:
         if r:
             cnt += 1
@@ -104,6 +109,13 @@ def main():
             if a == 4: # 5 seconds
                 r = False
                 window['-RANDOMBUTTON-'].update(visible=True)
+                
+                with open(currentDir + '/' + "result_log.txt", 'a') as f:
+                    f.write(str(num).zfill(3) + '\n')
+                    f.close()
+          
+                    print('file')
+                print('Result', num)
                 
         event, values = window.read(timeout=t)
         # continuous random number
