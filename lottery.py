@@ -95,9 +95,7 @@ def main():
                 
                 with open(currentDir + '/' + "result_log.txt", 'a') as f:
                     f.write(str(num).zfill(3) + '\n')
-                    f.close()
-          
-                    print('file')
+                    f.close()          
                 print('Result', num)
                 
         event, values = window.read(timeout=t)
