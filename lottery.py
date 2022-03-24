@@ -1,17 +1,9 @@
-
 from cgitb import text
 import datetime
-import re
-import gspread
 import json
-import pymysql
 import os
 import PySimpleGUI as sg
 import random
-
-from pymysql import OperationalError
-from pymysql import ProgrammingError
-from setuptools import Command
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 currentDir = dir_path.replace('\\', '/')
