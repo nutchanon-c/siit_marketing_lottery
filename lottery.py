@@ -14,6 +14,8 @@ with open(currentDir + "/config.json", 'r', encoding="utf8") as f:
     backgroundColor = data['backgroundColor']
     textColor = data['textColor']
     labelColor = data['labelColor']
+    numDigit = data['numDigit']
+    randomTime = data['randomTime']
 
 
 
@@ -35,6 +37,7 @@ def complementaryColor(my_hex):
 def main():
     with open(currentDir + '/' + 'result_log.txt', 'a') as f:
         f.write('----------Results for ' + str(datetime.datetime.now()) + '----------\n')
+        f.write(f'----------Number of Digits: {numDigit}----------\n')
         f.close()
 
 
@@ -100,12 +103,12 @@ def main():
                 cnt = 0
                 a += 1
                 print(a)
-            if a == 4: # 5 seconds
+            if a == randomTime - 1: # 5 seconds
                 r = False
                 window['-RANDOMBUTTON-'].update(visible=True)
                 
                 with open(currentDir + '/' + "result_log.txt", 'a') as f:
-                    f.write(str(num).zfill(3) + '\n')
+                    f.write(str(num).zfill(numDigit) + '\n')
                     f.close()          
                 print('Result', num)
                 
@@ -131,8 +134,8 @@ def main():
             window['-COMBO-'].update(disabled=False)
             r = False
         if r:
-            num = random.randint(1,300)
-            window['-RANDOMNUMBER-'].update(str(num).zfill(3))
+            num = random.randint(0, (10**numDigit)- 1)
+            window['-RANDOMNUMBER-'].update(str(num).zfill(numDigit))
             
 
 if __name__ == '__main__':

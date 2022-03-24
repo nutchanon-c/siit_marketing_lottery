@@ -3,6 +3,8 @@
    
     "backgroundColor" : "#ffe90a",
     "textColor" : "#ff0000",
-    "labelColor" : "#9907fe"
+    "labelColor" : "#9907fe",
+    "numDigit": 2,
+    "randomTime" : 5
 
 }
