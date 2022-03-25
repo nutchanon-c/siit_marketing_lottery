@@ -4,18 +4,27 @@ import json
 import os
 import PySimpleGUI as sg
 import random
+import sys
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+
+if getattr(sys, 'frozen', False):
+    dir_path = os.path.dirname(sys.executable)
+elif __file__:
+    dir_path = os.path.dirname(__file__)
 currentDir = dir_path.replace('\\', '/')
 
 # read an extract data from config.json
-with open(currentDir + "/config.json", 'r', encoding="utf8") as f:
-    data = json.loads(f.read())
-    backgroundColor = data['backgroundColor']
-    textColor = data['textColor']
-    labelColor = data['labelColor']
-    numDigit = data['numDigit']
-    randomTime = data['randomTime']
+try:
+    with open(currentDir + "/config.json", 'r', encoding="utf8") as f:
+        data = json.loads(f.read())
+        backgroundColor = data['backgroundColor']
+        textColor = data['textColor']
+        labelColor = data['labelColor']
+        numDigit = data['numDigit']
+        randomTime = data['randomTime']
+except:
+    sg.Popup('Config file not found')
+    exit()
 
 
 

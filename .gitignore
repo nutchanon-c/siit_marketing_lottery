@@ -1,1 +1,5 @@
 /result_log.txt
+/dist
+/build
+/__pycache__
+/lottery.spec
