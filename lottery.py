@@ -35,6 +35,7 @@ def complementaryColor(my_hex):
 
 
 def main():
+    chosen = []
     with open(currentDir + '/' + 'result_log.txt', 'a') as f:
         f.write('>Results for ' + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + '\n')
         f.write(f'>Number of Digits: {numDigit}\n')
@@ -103,8 +104,10 @@ def main():
                 cnt = 0
                 a += 1
                 print(a)
-            if a == randomTime - 1: # 5 seconds
+            if a >= randomTime - 1 and num not in chosen: # 5 seconds
                 r = False
+                chosen.append(num)
+                print(chosen)
                 window['-RANDOMBUTTON-'].update(visible=True)
                 
                 with open(currentDir + '/' + "result_log.txt", 'a') as f:
